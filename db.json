@@ -1,0 +1,146 @@
+{
+  "commodity": [
+    {
+      "id": 1,
+      "commodity": "milk",
+      "quantity": 100,
+      "unit": "l",
+      "discount": 20,
+      "price": 1.2,
+      "currency": "EUR"
+    },
+    {
+      "id": 2,
+      "commodity": "chocolate",
+      "discount": 12,
+      "quantity": 50,
+      "unit": "kg",
+      "price": 2.2,
+      "currency": "EUR"
+    },
+    {
+      "id": 3,
+      "commodity": "flower",
+      "quantity": 100,
+      "unit": "l",
+      "discount": 12,
+      "price": 1.2,
+      "currency": "EUR"
+    }
+  ],
+  "customers": [
+    {
+      "id": 1,
+      "name": "David",
+      "surname": "Jason",
+      "discount": [
+        {
+          "percentage": "10",
+          "commodity": "milk",
+          "commodityId": 1
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Jane",
+      "surname": "Smith",
+      "discount": [
+        {
+          "percentage": 10,
+          "commodity": "chocolate",
+          "commodityId": 2
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Merry",
+      "surname": "Kelson",
+      "discount": [
+        {
+          "percentage": 12,
+          "commodity": "flower",
+          "commodityId": 3
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Briana",
+      "surname": "Briggs",
+      "discount": [
+        {
+          "percentage": "12",
+          "commodity": "flower",
+          "commodityId": 3
+        },
+        {
+          "percentage": "8",
+          "commodity": "milk",
+          "commodityId": 1
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Michael",
+      "surname": "Moor",
+      "discount": [
+        {
+          "percentage": "12",
+          "commodity": "flower",
+          "commodityId": 3
+        }
+      ]
+    },
+    {
+      "name": "Strasno",
+      "surname": "Sada",
+      "discount": [
+        {
+          "commodityId": 3,
+          "percentage": 12,
+          "commodity": "flower"
+        }
+      ],
+      "id": 6
+    },
+    {
+      "name": "David",
+      "surname": "Petrovica",
+      "discount": [
+        {
+          "commodityId": 1,
+          "percentage": 20,
+          "commodity": "milk"
+        }
+      ],
+      "id": 7
+    },
+    {
+      "name": "Milan",
+      "surname": "Drndarevic",
+      "discount": [
+        {
+          "commodityId": 1,
+          "percentage": 20,
+          "commodity": "milk"
+        }
+      ],
+      "id": 8
+    },
+    {
+      "name": "sadadada",
+      "surname": "dada",
+      "discount": [
+        {
+          "commodityId": 2,
+          "percentage": 12,
+          "commodity": "chocolate"
+        }
+      ],
+      "id": 9
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+<div class="container-fluid py-3">
+  <div class="w-100 d-flex pb-4">
+    <h2 class="w-50">Wholesale Discount Calculator</h2>
+    <input class="w-25 form-control" placeholder="Search" name="search" [value]="search" [(ngModel)]="search">
+  </div>
+  <app-button color="black" text="Add New" (click)="openPopup()"></app-button>
+  <div
+    class="modal"
+    tabindex="-1"
+    role="dialog"
+    [ngStyle]="{'display':displayStyle}">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">{{title}} Customer</h4>
+        </div>
+        <div class="modal-body">
+          <form name="add-form" (ngSubmit)="setCustomer()">
+            <div class="w-100 mb-4">
+              <label for="name">Name:</label>
+              <input id="name" class="form-control" type="text" placeholder="Name" name="name" [(ngModel)]="name">
+            </div>
+            <div class="w-100">
+              <label for="surname">Surname:</label>
+              <input id="surname" class="form-control" type="text" placeholder="Surname" name="surname" [(ngModel)]="surname">
+            </div>
+            <div class="my-4">
+              <label for="commodity">Choose Commodity:</label>
+              <select
+                id="commodity"
+                class="form-select"
+                aria-label="Default select example"
+                [(ngModel)]="commodityID"
+                name="commodity"
+                (ngModelChange)="changeCommodity()">
+                <option selected disabled>Commodity</option>
+                <option *ngFor="let discount of commodity" value="{{discount.id}}">{{discount.commodity}}</option>
+              </select>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <app-button text="Close" color="red" (click)="closePopup()"></app-button>
+          <app-button text="{{title}}" color="black" (click)="setCustomer()"></app-button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Surname</th>
+      <th scope="col">Discount</th>
+      <th scope="col" class="text-center">#</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let customer of customers | filter:search">
+      <th scope="row">{{customer.id}}</th>
+      <td>{{customer.name}}</td>
+      <td>{{customer.surname}}</td>
+      <td>
+        <div *ngFor="let discount of customer.discount" class="d-flex flex-column">
+            {{discount.percentage}}% {{discount.commodity}}
+        </div>
+      </td>
+      <td class="text-center">
+        <app-button (click)="openPopupEdit(customer)" text="edit" color="black"></app-button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,46 @@
+<h1 class="text-center mt-2">Discount Calculator</h1>
+<div class="container my-5">
+  <div class="d-flex justify-content-between w-75 mx-auto">
+    <div class="w-75 d-flex">
+      <select
+        class="form-select"
+        aria-label="Default select example"
+        [(ngModel)]="customerID"
+        name="customers"
+        (ngModelChange)="changeCustomer()">
+        <option selected disabled>Customers</option>
+        <option *ngFor="let customer of customers" value="{{customer.id}}" >{{customer.name}}</option>
+      </select>
+      <select
+        class="form-select"
+        aria-label="Default select example"
+        [(ngModel)]="commodityID"
+        (ngModelChange)="changeCommodity()">
+        <option selected disabled>Commodity</option>
+        <option *ngFor="let discount of commodity" value="{{discount.id}}">{{discount.commodity}}</option>
+      </select>
+    </div>
+    <div class="w-25">
+      <input
+        type="number"
+        name="quantity"
+        class="form-control"
+        placeholder="Input quantity ordered"
+        [(ngModel)]="quantity"
+        (ngModelChange)="changeQuantity()">
+    </div>
+  </div>
+  <div class="card mt-5 mx-auto w-50">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Name: <span class="pl-5">{{choosedCustomer?.name}}</span></li>
+      <li class="list-group-item">Commodity:<span class="pl-5">{{choosedCommodity?.commodity}}</span></li>
+      <li class="list-group-item">Unit:<span class="pl-5">{{choosedCommodity?.unit}}</span></li>
+      <li class="list-group-item">Price (No Discount):<span class="pl-5">{{choosedCommodity?.newPrice}}</span></li>
+      <li class="list-group-item">Quantity: <span class="pl-5">{{quantity}}</span></li>
+      <li class="list-group-item">Discount:<span class="pl-5">{{choosedCommodity?.discount}}%</span></li>
+      <li class="list-group-item">Quantity (Discount):<span class="pl-5">{{choosedCommodity?.quantity}}</span></li>
+      <li class="list-group-item">Price (Discount):<span class="pl-5">{{choosedCommodity?.newPrice}}</span></li>
+      <li class="list-group-item">Total:<span class="pl-5">{{choosedCommodity?.discountedPrice ? choosedCommodity?.discountedPrice : choosedCommodity?.newPrice}}</span></li>
+    </ul>
+  </div>
+</div>
